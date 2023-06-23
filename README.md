@@ -1,7 +1,9 @@
 ### Importing Libraries
+```python
+import numpy as np 
+import pandas as pd
 
-    import numpy as np 
-    import pandas as pd
+```
 ### Taking Input CSV
 ```python
 # the Low memory option is set to ensure it takes in all values as the Books have mixed data type in some fields
@@ -11,77 +13,77 @@ rating = pd.read_csv('Ratings.csv')
 ```
 ### Basic Data Exploration Operations
 
-```
+```python
 print(books.shape)
 rating.isnull().sum()
 users.duplicated().sum()
 ```
 ## Popularity based
-```
+```python
 # we are merging two csv on the ISBN no 
 mergeddf = rating.merge(books, on='ISBN')
 ```
-```
+```python
 mergeddf.shape
 ```
 ### Grouping no of rating with book name
-```
+```python
 num_rating_df = mergeddf.groupby('Book-Title').count()['Book-Rating'].reset_index()
 ```
 ### Getting the number of ratings done on each books
-```
+```python
 num_rating_df.rename(columns={"Book-Rating":"num_Rating"},inplace=True)
 num_rating_df.head()
 ```
 ### Doing the same operation except this time with avg rating
-```
+```python
 avg_rating_df = mergeddf.groupby('Book-Title').mean()['Book-Rating'].reset_index()
 avg_rating_df.rename(columns={"Book-Rating":"avg_Rating"},inplace=True )
 avg_rating_df.head()
 ```
 ### Merging both the data frame 
-```
+```python
 popular_df = num_rating_df.merge(avg_rating_df, on='Book-Title')
 popular_df.head()
 ```
-```
+```python
 popular_df = popular_df[popular_df['num_Rating']>=250].sort_values('avg_Rating',ascending=False).head(50)
 popular_df = popular_df.merge(books,on='Book-Title').drop_duplicates('Book-Title')[['Book-Title','Book-Author','Year-Of-Publication','Image-URL-M','avg_Rating']]
 popular_df
 ```
 ## Collaborative approach
 ### Here we are considering only those user who have  rated more than 200 books
-```
+```python
 x = mergeddf.groupby('User-ID').count()['Book-Rating'] > 200
 padhe_like_user = x[x].index
 ```
-```
+```python
 filtered_rating = mergeddf[mergeddf['User-ID'].isin(padhe_like_user)]
 ```
 ### Now we considering books that have more than 50 rating
-```
+```python
 y = filtered_rating.groupby('Book-Title').count()['Book-Rating'] >= 50
 famous_books = y[y].index
 ```
-```
+```python
 final_rating = filtered_rating[filtered_rating['Book-Title'].isin(famous_books)]
 ```
 ### Formatting table according to Need
-```
+```python
 pt = final_rating.pivot_table(index='Book-Title',columns='User-ID',values='Book-Rating')
 pt.fillna(0,inplace=True)
 pt
 ```
-```
+```python
 from sklearn.metrics.pairwise import cosine_similarity
 ```
 ### Calculating the cosine distance between user for each book 
-```
+```python
 simlarity_score = cosine_similarity(pt)
 print(simlarity_score)
 ```
 ### Creating a function to Recommend Books
-```
+```python
 def recomend(book_name):
     index = np.where(pt.index == book_name )[0][0]
     similar_items = sorted(list(enumerate(simlarity_score[index])),key=lambda x:x[1],reverse=True)[1:8]
