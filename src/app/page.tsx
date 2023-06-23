@@ -4,6 +4,7 @@ import { AiOutlineReddit ,AiOutlineStar, AiOutlineSearch, AiOutlineUnorderedList
 import { FiGithub } from "react-icons/fi" 
 import { FiMail } from "react-icons/fi";
 export default function Home() {
+
   const features ={
     "all":[
       {
