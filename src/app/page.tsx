@@ -1,26 +1,26 @@
 import Data from './data.json'
 import { FaDotCircle, FaInstagram, FaLinkedinIn} from "react-icons/fa";
-import { AiOutlineReddit } from "react-icons/ai";
+import { AiOutlineReddit ,AiOutlineStar, AiOutlineSearch, AiOutlineUnorderedList} from "react-icons/ai";
 import { FiGithub } from "react-icons/fi" 
 import { FiMail } from "react-icons/fi";
 export default function Home() {
   const features ={
     "all":[
       {
-        "name":"hehe1",
-        "desc":"popular",
+        "id":"  ",
+        "desc":"List all the popular books that are liked by more than 100 people",
         "nav":"/popular",
         "style":"bg-white text-2xl justify-around p-6 flex flex-col items-center rounded-3xl border-2 shadow h-[26rem]"
       },
       {
-        "name":"heh1",
-        "desc":"recommend",
+        "id":"  ",
+        "desc":"Get recommendations for new Books to read on the basis of the books you have already read",
         "nav":"/recommend",
         "style":"bg-white text-2xl justify-around p-6 flex flex-col items-center rounded-3xl border-2 shadow h-[30rem]"
       },
       {
-        "name":"has",
-        "desc":"volacx",
+        "id":"  ",
+        "desc":"List of all the books that were used for the data analysis purpose",
         "nav":"/all",
         "style":"bg-white text-2xl justify-around p-6 flex flex-col items-center rounded-3xl border-2 shadow h-[26rem]"
       }
@@ -47,7 +47,7 @@ export default function Home() {
       </div>
       <div className="h-screen bg-white p-24 flex flex-col justify-around">
         <h2 className="text-8xl font-medium">Methods</h2>
-        <p className="text-4xl text-justify py-5">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+        <p className="text-4xl text-justify py-5">The book recommendation system uses collaborative filtering and popularity-based approaches to offer personalized and diverse book suggestions. Collaborative filtering analyzes user behavior and preferences to find patterns among users with similar tastes, while the popularity-based approach considers the overall reception of books. Both techniques are used to help guide users for better choice, the system helps users discover new books based on similar user preferences and ensures a mix of popular and niche titles for a varied reading experience.</p>
         <h3 className="text-3xl">More Information</h3>
         <ul className="text-3xl">
           <li>Github</li>
@@ -55,8 +55,15 @@ export default function Home() {
         </ul>
       </div>
       <div className="h-screen bg-gray-100 flex flex-col justify-between">
-        <h2 className="text-8xl px-24 py-16 font-medium">Bye,</h2>
-        <p className="text-4xl px-24"> Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p>
+        <h2 className="text-8xl px-24 pt-16 font-medium">Bye,</h2>
+        <p className="text-4xl px-24">This side project is a result of my desire to delve deeper into the realm of data science and gain a better understanding of its applications. By utilizing various data science techniques, I aimed to analyze data and extract valuable insights. My ultimate goal was to create something that would not only be informative but also user-friendly and practical.
+<br/>
+<br/>
+One of the key objectives of this project was to combine the power of data science with web development. By integrating these two disciplines, I sought to create a platform or application that would provide a seamless and intuitive user experience. Through the convergence of data science and web development, I aimed to offer users a practical tool that harnesses the potential of data-driven insights in a user-friendly manner.
+
+<br/>
+<br/>
+I am excited to present this side project and I sincerely hope that you find it enjoyable and useful. Your feedback and suggestions are greatly appreciated as they will help me improve and refine the project further. Please feel free to reach out to me through the provided links below if you have any questions, comments, or collaboration opportunities. Thank you for your support, and I look forward to hearing from you.</p>
         <div className="bg-white">
 
           <p className="text-xl py-5 text-center">© 2023 Tejas Mayekar</p>
@@ -75,7 +82,12 @@ export default function Home() {
 function Card({...props}:any) {
   return(
     <div className={props.data.style}>
-      <h1>{props.data.name}</h1>
+      <h1 className="text-4xl font-medium">
+        {
+          props.data.id 
+          
+        }
+      </h1>
       <h1>{props.data.desc}</h1>
       <a href={props.data.nav} className="font-medium py-2 px-8 rounded-lg border-2">Lets go</a>
     </div>

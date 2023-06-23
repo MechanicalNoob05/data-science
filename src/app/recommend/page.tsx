@@ -1,5 +1,6 @@
 'use client'
 import { Hint } from 'react-autocomplete-hint';
+import Navbar from '../component/navbar'
 import { useState,useEffect } from 'react'
 import Title from '../datatitlecolab.json'
 import Booksugget from '../datacolab.json'
@@ -18,13 +19,11 @@ export default function page(params:any) {
   }, [])
   return(
     <div className="text-xl bg-gray-100 min-h-screen">
-      <div className="sticky w-100 bg-white top-0 border-2 shadow-sm p-4 text-3xl font-bold" >
-        nav
-      </div>
+      <Navbar/>
       <div className="container mx-auto my-20 p-6 bg-white shadow-sm">
-        <div className='pb-6'>
-          <Hint options={hintData} allowTabFill>
-            <input placeholder='Enter Book Name here' type='text' className='border-b-2 p-2 shadow-sm w-full'
+        <div className='pb-6 z-0'>
+          <Hint  options={hintData} allowTabFill>
+            <input placeholder='Enter Book Name here' type='text' className='border-b-2 p-2 shadow-sm w-full z-0'
               value={text}
               onChange={e => setText(e.target.value)} 
             />
