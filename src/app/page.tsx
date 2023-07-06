@@ -1,6 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { sha1 } from 'crypto-hash';
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi"
+import { FiMail } from "react-icons/fi";
+
 export default function Home() {
   const [text, setTextInput] = useState("")
   var [output, setOutput] = useState("")
@@ -32,16 +36,16 @@ export default function Home() {
   }, [output])
 
   return (
-    <main className="min-h-screen dark:text-[#DDE6ED] text-2xl  bg-cover bg-no-repeat bg-fixed bg-[url('https://images.pexels.com/photos/951408/pexels-photo-951408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] dark:bg-[url('https://images.pexels.com/photos/274886/pexels-photo-274886.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]">
-      <div className="flex justify-center items-center p-20 h-screen w-screen">
-        <div className='backdrop-blur-md bg-white/30 dark:bg-black/30 h-full w-full rounded-md p-6 shadow flex flex-col justify-center items-center'>
-          <h1 className='xl:text-[10rem] font-extrabold font-mono py-6'>LOCKCHECK</h1>
+    <main className="min-h-screen dark:text-[#DDE6ED] xl:text-2xl  bg-cover bg-no-repeat bg-fixed bg-[url('https://images.pexels.com/photos/951408/pexels-photo-951408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] dark:bg-[url('https://images.pexels.com/photos/274886/pexels-photo-274886.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]">
+      <div className="flex justify-center items-center xl:p-20 py-20 h-screen w-screen">
+        <div className='backdrop-blur-md bg-white/30 dark:bg-black/30 container mx-auto  rounded-md p-6 shadow flex flex-col justify-center items-center'>
+          <h1 className='xl:text-[10rem] text-6xl font-extrabold font-mono py-6'>LOCKCHECK</h1>
           <p className='py-6'>Check your privacy threat level now! </p>
         </div>
       </div>
-      <div className="flex h-screen w-screen rounded-t-[4rem] p-10 bg-gray-100 dark:bg-[#191E29]" id='what'>
-        <div className='h-full w-full shadow rounded-lg m-auto p-6 bg-white dark:bg-[#0B0E14]'>
-          <h3 className='xl:text-4xl font-semibold underline dark:decoration-indigo-600 decoration-indigo-400 border-b-2 pb-6 dark:border-slate-700 '>What is it?</h3>
+      <div className="flex min-h-screen w-screen rounded-t-[4rem] xl:p-10 pt-16 bg-gray-100 dark:bg-[#191E29]" id='what'>
+        <div className='min- h-full w-full shadow rounded-lg m-auto p-6 bg-white dark:bg-[#0B0E14]'>
+          <h3 className='text-3xl font-semibold underline dark:decoration-indigo-600 decoration-indigo-400 border-b-2 pb-6 dark:border-slate-700 '>What is it?</h3>
           <ul className='text-justify'>
             <li className='py-4'><p>It is a tool designed to help you assess the security of your passwords by checking if they have been compromised in any data breaches. In today's digital age, where data breaches are unfortunately common, cybercriminals can gain access to databases containing user passwords. They can then use these stolen passwords in various malicious activities, such as dictionary attacks.</p></li>
             <li className='py-4'><p>A dictionary attack is a method used by hackers to crack passwords by systematically trying a large number of commonly used words or phrases from a pre-existing list, known as a dictionary. By leveraging leaked passwords from data breaches, attackers can significantly increase their chances of success in such attacks.</p></li>
@@ -52,11 +56,11 @@ export default function Home() {
           </ul>
         </div>
       </div>
-      <div className="flex h-screen w-screen bg-gray-100 dark:bg-[#191E29]" id='try'>
+      <div className="flex xl:h-screen h-max py-10 bg-gray-100 dark:bg-[#191E29]" id='try'>
         <div className="p-6 bg-white dark:bg-[#0B0E14] dark:border-0 border-2 rounded shadow container justify-center m-auto">
-          <div className="pb-6 dark:border-slate-700 flex">
+          <div className="pb-6 dark:border-slate-700 flex xl:flex-row flex-col items-center">
             <input placeholder="Enter Password to Check" value={text} type="text" className="p-2 w-full rounded border-b-2 dark:border-slate-700 dark:bg-[#00000000] " onChange={(e) => { setTextInput(e.target.value) }} />
-            <button className="w-1/4 mx-6 border-2 dark:border-slate-700 dark:bg-[#191E29] dark:border-0 shadow rounded" onClick={handleTextInput}>Check</button>
+            <button className="w-1/4 xl:mx-6 my-6 border-2 dark:border-slate-700 dark:bg-[#191E29] dark:border-0 shadow rounded" onClick={handleTextInput}>Check</button>
           </div>
           <h1 className="py-6">SHA1 Hash: {output}</h1>
           <div className="text-center py-10">
@@ -68,9 +72,9 @@ export default function Home() {
           <h2 className='text-center text-lg text-violet-600'><a href="#how">Learn how this works while keeping your password hidden</a></h2>
         </div>
       </div>
-      <div className="flex h-screen w-screen p-10 bg-gray-100 dark:bg-[#191E29]" id='how'>
-        <div className='h-full w-full shadow rounded-lg m-auto p-6 bg-white dark:bg-[#0B0E14]'>
-          <h3 className='xl:text-4xl font-semibold underline dark:decoration-indigo-600 decoration-indigo-400 border-b-2 pb-6 dark:border-slate-700 '>How Does This Works?</h3>
+      <div className="flex min-h-screen w-screen xl:p-10 bg-gray-100 dark:bg-[#191E29]" id='how'>
+        <div className='min-h-full w-full shadow rounded-lg m-auto p-6 bg-white dark:bg-[#0B0E14]'>
+          <h3 className='text-3xl font-semibold underline dark:decoration-indigo-600 decoration-indigo-400 border-b-2 pb-6 dark:border-slate-700 '>How Does This Works?</h3>
           <ul>
             <li className='py-4'><p>The method used in the process is called k-anonymity, it basically maintains a certain level of anonymity between the sender and checker. It works the following way:</p></li>
             <li className='py-4'>
@@ -84,8 +88,18 @@ export default function Home() {
                 <li className='p-2'>If not then the field will be empty</li>
               </ul>
             </li>
-            <li className='py-4'><p>The SHA1 hashing algorithm is not the best but still gets the job done, the main reason for using this algorithm is the database which stores all the password has the passwords hashed in SHA1. The https protocol adds another layer of encryption on top of it to make it more secure. This method helps to keep complete privacy of the user and still lets the user know if his/her password is leaked or not.</p></li>
+            <li className='py-4'><p>The SHA1 hashing algorithm is not the best but still gets the job done, the main reason for using this algorithm is the database which stores all the password has the passwords hashed in SHA1. The https protocol adds another layer of encryption on top of it to make it more secure. This method helps to keep complete privacy of the user and still lets the user know if his/her password is leaked or not. You can view the source code <a className='text-violet-500' href="https://github.com/MechanicalNoob05/data-science">here.</a></p></li>
             <li className='py-4'><p>Since all the work is done on your device the privacy is maintained all while giving the results you want as long as your device is not compromised no one will find out your password. For more detailed Explaination you can watch this video by <a className='text-violet-500' href="https://www.youtube.com/watch?v=hhUb5iknVJs">Computerphile</a></p></li>
+          </ul>
+        </div>
+      </div>
+      <div className="flex min-h-max w-screen xl:p-10 flex-col bg-gray-100 dark:bg-[#191E29]" id='contact'>
+        <div className="border-t-2 w-full dark:border-slate-600 xl:py-4 p-4 grid">
+          <ul className="justify-self-center text-2xl dark:text-slate-400 flex justify-around xl:w-1/3 lg:md:w-1/2 w-full">
+            <li className="p-3"><a title="Github" href="https://github.com/MechanicalNoob05"><FiGithub /></a></li>
+            <li className="p-3"><a title="Linkedin" href="https://www.linkedin.com/in/tejas-mayekar-122a181a8/"><FaLinkedinIn /></a></li>
+            <li className="p-3"><a title="Instagram" href="https://instagram.com/mechanical_noob?igshid=MzNlNGNkZWQ4Mg=="><FaInstagram /></a></li>
+            <li className="p-3"><a title="Instagram" href="#"><FiMail /></a></li>
           </ul>
         </div>
       </div>
