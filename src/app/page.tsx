@@ -15,7 +15,7 @@ export default function Home() {
             let a: string[] = item.split(":")
             if(a[0]=== last){
               console.log(a[0])
-              setPassword(a[1])
+              setPassword(parseInt(a[1]))
               return
             }
           })
