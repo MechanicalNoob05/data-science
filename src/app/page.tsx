@@ -4,7 +4,7 @@ import {sha1,sha256,sha384,sha512} from 'crypto-hash';
 export default function Home() {
   const [text,setTextInput]=useState("")
   var [output,setOutput]=useState("")
-  const [password ,setPassword]=useState()
+  const [password ,setPassword]=useState(Number)
 
   const sendHash = async()=>{
     let response = await fetch(`https://api.pwnedpasswords.com/range/${output.slice(0,5)}`);
@@ -15,7 +15,8 @@ export default function Home() {
             let a: string[] = item.split(":")
             if(a[0]=== last){
               console.log(a[0])
-              setPassword(parseInt(a[1]))
+              let times:number =parseInt(a[1]) 
+              setPassword(times)
               return
             }
           })
