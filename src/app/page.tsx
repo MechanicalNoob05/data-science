@@ -58,7 +58,7 @@ export default function Home() {
       <div className="flex xl:h-screen h-max py-10 bg-gray-100 dark:bg-[#16161e]" id='try'>
         <div className="p-6 bg-white dark:bg-[#1b1b27] border-2 rounded shadow container justify-center m-auto dark:border-2 dark:border-[#dadada]/10">
           <div className="pb-6 dark:border-slate-700 flex xl:flex-row flex-col items-center">
-            <input placeholder="Enter Password to Check" value={text} type="text" className="p-2 w-full rounded border-b-2 dark:border-slate-700 dark:bg-[#00000000] " onChange={(e) => { setTextInput(e.target.value) }} />
+            <input placeholder="Enter Password to Check" value={text} type="password" className="p-2 w-full rounded border-b-2 dark:border-slate-700 dark:bg-[#00000000] " onChange={(e) => { setTextInput(e.target.value) }} />
             <button className="w-1/4 xl:mx-6 my-6 p-2 border-2 dark:text-[#ffffff] dark:shadow-[#737176] dark:bg-[#000000]/30 hover:bg-[#f44336]/80 hover:text-black transition ease-in-out duration-300 dark:border-0 hover:shadow-sm rounded" onClick={handleTextInput}>Check</button>
           </div>
           <h1 className="py-6">SHA1 Hash: {output}</h1>
